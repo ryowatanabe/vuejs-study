@@ -11,9 +11,14 @@ module.exports = {
       }
     ]
   },
+
   plugins: [
     new VueLoaderPlugin()
   ],
+
+  resolve: {
+    extensions: [".vue", ".js"]
+  },
 
   entry: {
     index: `./src/index.js`,

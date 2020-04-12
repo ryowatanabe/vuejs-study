@@ -1,9 +1,7 @@
 import Vue from 'vue';
-import App from './App.vue';
+import App from './App';
 
-Vue.config.productionTip = false;
-
-new Vue({
-  el: '#app',
-  components: { App }
-});
+document.addEventListener('DOMContentLoaded', () => {
+  const app = new App
+  app.$mount('#app')
+})
