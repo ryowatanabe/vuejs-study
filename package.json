@@ -1,8 +1,6 @@
 {
-  "dependencies": {
-    "vue": "^2.6.11"
-  },
   "devDependencies": {
+    "vue": "^2.6.11",
     "vue-loader": "^15.9.1",
     "vue-template-compiler": "^2.6.11",
     "webpack": "^4.42.1",
