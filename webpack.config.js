@@ -40,7 +40,7 @@ const config = {
   },
 
   entry: {
-    index: `./index.js`,
+    "browser_action/index": `./browser_action/index.js`,
   },
 
   output: {
