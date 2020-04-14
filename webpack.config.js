@@ -49,4 +49,8 @@ const config = {
   }
 };
 
+if (config.mode === 'development') {
+  config.devtool = 'inline-source-map';
+}
+
 module.exports = config;
