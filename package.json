@@ -10,6 +10,7 @@
   "devDependencies": {
     "copy-webpack-plugin": "^5.1.1",
     "cross-env": "^7.0.2",
+    "prettier": "^2.0.4",
     "vue": "^2.6.11",
     "vue-loader": "^15.9.1",
     "vue-template-compiler": "^2.6.11",
@@ -17,6 +18,8 @@
     "webpack-cli": "^3.3.11"
   },
   "scripts": {
+    "prettier": "prettier \"src/**/*.{js,vue}\"",
+    "prettier:write": "yarn prettier -- --write",
     "build": "cross-env NODE_ENV=production webpack --hide-modules",
     "build:dev": "cross-env NODE_ENV=development webpack --hide-modules",
     "watch": "yarn build -- --watch",
