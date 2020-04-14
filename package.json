@@ -1,4 +1,12 @@
 {
+  "name": "vuejs-study",
+  "version": "0.0.1",
+  "description": "test project for studying vue.js",
+  "author": "Ryo Watanabe <watanabe.ryo@gmail.com>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=10"
+  },
   "devDependencies": {
     "copy-webpack-plugin": "^5.1.1",
     "cross-env": "^7.0.2",

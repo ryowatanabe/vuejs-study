@@ -1,9 +1,10 @@
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const { version } = require('./package.json');
 
-module.exports = {
+const config = {
   mode: process.env.NODE_ENV,
-
+  context: __dirname + '/src',
   module: {
     rules: [
       {
@@ -17,7 +18,21 @@ module.exports = {
     new VueLoaderPlugin(),
     new CopyPlugin([
       { from: 'static', to: './' },
-    ]),
+      {
+        from: 'manifest.json',
+        to: 'manifest.json',
+        transform: (content) => {
+          const jsonContent = JSON.parse(content);
+          jsonContent.version = version;
+
+          if (config.mode === 'development') {
+            jsonContent['content_security_policy'] = "script-src 'self' 'unsafe-eval'; object-src 'self'";
+          }
+
+          return JSON.stringify(jsonContent, null, 2);
+        },
+      },
+    ])
   ],
 
   resolve: {
@@ -25,7 +40,7 @@ module.exports = {
   },
 
   entry: {
-    index: `./src/index.js`,
+    index: `./index.js`,
   },
 
   output: {
@@ -33,3 +48,5 @@ module.exports = {
     filename: "[name].js"
   }
 };
+
+module.exports = config;

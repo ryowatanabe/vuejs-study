@@ -1,0 +1,28 @@
+{
+  "manifest_version": 2,
+  "name": "vuejs-study",
+  "version": null,
+  "description": "test project for studying vue.js",
+  "browser_action": {
+    "default_title": "vuejs-study",
+    "default_popup": "browser_action/index.html"
+  },
+  "background": {
+    "scripts": [
+      "background/main.js"
+    ]
+  },
+  "options_ui": {
+    "page": "options/index.html",
+    "chrome_style": true
+  },
+  "content_scripts": [
+    {
+      "js": [
+        "content_scripts/main.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": false
+    }
+  ]
+}
