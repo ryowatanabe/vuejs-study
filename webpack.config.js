@@ -1,7 +1,8 @@
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  mode: "production",
+  mode: process.env.NODE_ENV,
 
   module: {
     rules: [
@@ -13,7 +14,10 @@ module.exports = {
   },
 
   plugins: [
-    new VueLoaderPlugin()
+    new VueLoaderPlugin(),
+    new CopyPlugin([
+      { from: 'static', to: './' },
+    ]),
   ],
 
   resolve: {
@@ -25,7 +29,7 @@ module.exports = {
   },
 
   output: {
-    path: __dirname + "/out",
+    path: __dirname + "/dist",
     filename: "[name].js"
   }
 };
