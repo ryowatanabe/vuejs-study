@@ -20,15 +20,16 @@
     "vue-loader": "^15.9.1",
     "vue-template-compiler": "^2.6.11",
     "webpack": "^4.42.1",
-    "webpack-cli": "^3.3.11"
+    "webpack-cli": "^3.3.11",
+    "webpack-extension-reloader": "^1.1.4"
   },
   "scripts": {
     "lint": "eslint --ext .js,.vue src",
     "prettier": "prettier \"src/**/*.{js,vue}\"",
-    "prettier:write": "yarn prettier -- --write",
+    "prettier:write": "yarn prettier --write",
     "build": "cross-env NODE_ENV=production webpack --hide-modules",
     "build:dev": "cross-env NODE_ENV=development webpack --hide-modules",
-    "watch": "yarn build -- --watch",
-    "watch:dev": "cross-env HMR=true yarn build:dev -- --watch"
+    "watch": "yarn build --watch",
+    "watch:dev": "cross-env HMR=true yarn build:dev --watch"
   }
 }

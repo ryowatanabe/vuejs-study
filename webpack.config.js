@@ -1,10 +1,17 @@
-const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const ExtensionReloader = require('webpack-extension-reloader');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const { version } = require('./package.json');
 
 const config = {
   mode: process.env.NODE_ENV,
   context: __dirname + '/src',
+
+  entry: {
+    "background/main": `./background/main.js`,
+    "browser_action/index": `./browser_action/index.js`,
+  },
+
   module: {
     rules: [
       {
@@ -39,10 +46,6 @@ const config = {
     extensions: [".vue", ".js"]
   },
 
-  entry: {
-    "browser_action/index": `./browser_action/index.js`,
-  },
-
   output: {
     path: __dirname + "/dist",
     filename: "[name].js"
@@ -51,6 +54,14 @@ const config = {
 
 if (config.mode === 'development') {
   config.devtool = 'inline-source-map';
+}
+
+if (process.env.HMR === 'true') {
+  config.plugins = (config.plugins || []).concat([
+    new ExtensionReloader({
+      manifest: __dirname + '/dist/manifest.json',
+    }),
+  ]);
 }
 
 module.exports = config;
