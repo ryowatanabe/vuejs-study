@@ -1,16 +1,15 @@
 {
   "manifest_version": 2,
-  "name": "vuejs-study",
+  "name": "__MSG_appName__",
   "version": null,
-  "description": "test project for studying vue.js",
+  "description": "__MSG_appDesc__",
+  "default_locale": "ja",
   "browser_action": {
     "default_title": "vuejs-study",
     "default_popup": "browser_action/index.html"
   },
   "background": {
-    "scripts": [
-      "background/main.js"
-    ]
+    "scripts": ["background/main.js"]
   },
   "options_ui": {
     "page": "options/index.html",
@@ -18,12 +17,8 @@
   },
   "content_scripts": [
     {
-      "matches": [
-        "https://localhost/*"
-      ],
-      "js": [
-        "content_scripts/main.js"
-      ],
+      "matches": ["https://localhost/*"],
+      "js": ["content_scripts/main.js"],
       "run_at": "document_start",
       "all_frames": false
     }

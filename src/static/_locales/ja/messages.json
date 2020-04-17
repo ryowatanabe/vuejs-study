@@ -1,0 +1,16 @@
+{
+  "appName": {
+    "message": "拡張機能テスト",
+    "description": "The title of the application, displayed in the web store."
+  },
+  "appDesc": {
+    "message": "テスト用の拡張機能です。",
+    "description": "The description of the application, displayed in the web store."
+  },
+  "helloWorld": {
+    "message": "はろー わーるど！"
+  },
+  "helloWorld2": {
+    "message": "はろー わーるど！！"
+  }
+}

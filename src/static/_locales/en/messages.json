@@ -1,0 +1,14 @@
+{
+  "appName": {
+    "message": "Test Extension"
+  },
+  "appDesc": {
+    "message": "This is an extension for testing."
+  },
+  "helloWorld": {
+    "message": "Hello world!"
+  },
+  "helloWorld2": {
+    "message": "Hello world!!"
+  }
+}
