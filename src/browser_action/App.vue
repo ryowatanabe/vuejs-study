@@ -12,7 +12,7 @@ export default Vue.extend({
   data: function () {
     return {
       data: chrome.i18n.getMessage('helloWorld'),
-      getMessage: chrome.i18n.getMessage
+      getMessage: chrome.i18n.getMessage,
     };
   },
 });
