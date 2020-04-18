@@ -1,11 +1,12 @@
 const CopyPlugin = require('copy-webpack-plugin');
 const ExtensionReloader = require('webpack-extension-reloader');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const path = require('path');
 const { version } = require('./package.json');
 
 const config = {
   mode: process.env.NODE_ENV,
-  context: __dirname + '/src',
+  context: path.join(__dirname, 'src'),
 
   entry: {
     "background/main": `./background/main.js`,
@@ -47,7 +48,7 @@ const config = {
   },
 
   output: {
-    path: __dirname + "/dist",
+    path: path.join(__dirname, "dist"),
     filename: "[name].js"
   }
 };
@@ -59,7 +60,7 @@ if (config.mode === 'development') {
 if (process.env.HMR === 'true') {
   config.plugins = (config.plugins || []).concat([
     new ExtensionReloader({
-      manifest: __dirname + '/dist/manifest.json',
+      manifest: path.join(__dirname, 'dist/manifest.json'),
     }),
   ]);
 }
